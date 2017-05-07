@@ -27,7 +27,10 @@ void Drawer::writeImage() const {
 }
 
 void Drawer::draw_circle(int x1, int y1, int R, uint8_t color, bool fill) {
-    int x = 0, y = R, delta = 1 - 2 * R, error = 0;
+    int x = 0;
+    int y = R;
+    int delta = 1 - 2 * R;
+    int error = 0;
     while (y >= 0) {
         std::size_t up    = static_cast<std::size_t>(clamp(y1 - y, 0, static_cast<int>(picture.get_cols()) - 1));
         std::size_t down  = static_cast<std::size_t>(clamp(y1 + y, 0, static_cast<int>(picture.get_cols()) - 1));

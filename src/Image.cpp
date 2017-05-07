@@ -27,7 +27,7 @@ Image::~Image() {
     del_data();
 }
 
-Image::Image(const Image& m) {
+Image::Image(const Image &m) {
     _rows = m._rows;
     _cols = m._cols;
     _data = new_data(_rows, _cols, 0);
@@ -48,11 +48,11 @@ uint8_t Image::get(std::size_t i, std::size_t j) const {
     return _data[i][j];
 }
 
-ImageException::ImageException(const char* msg) {
+ImageException::ImageException(const char *msg) {
     message = msg;
 }
 
-ImageException::ImageException(const char* msg, const char* file, const char* func, int line) {
+ImageException::ImageException(const char *msg, const char *file, const char *func, int line) {
     message = msg;
     error_dest = std::string("Error in file ") + file 
                  + std::string(", function ") +  func 
