@@ -24,11 +24,11 @@ int main(int argc, char *argv[]) {
 
         options.add_options()
 	        ("help", "Print help")
-	        ("f,filename", "input filename", cxxopts::value<std::string>(filename)->default_value("out"))
+	        ("f,filename", "output filename", cxxopts::value<std::string>(filename)->default_value("out"))
 	        ("x,rows", "rows in a maze", cxxopts::value<int>(rows)->default_value("15"))
 	        ("y,cols", "colomns in a maze", cxxopts::value<int>(cols)->default_value("15"))
-	        ("b,block_width", "pixel widht of block in a maze", cxxopts::value<int>(block_width)->default_value("15"))
-	        ("w,wall_width", "pixel width wall in a maze", cxxopts::value<int>(wall_width)->default_value("3"))
+	        ("b,block_width", "pixel width of a block in a maze", cxxopts::value<int>(block_width)->default_value("15"))
+	        ("w,wall_width", "pixel width of a wall in a maze", cxxopts::value<int>(wall_width)->default_value("3"))
 	        ("r,resolution", "resolution in meteres per 1000 pixels", cxxopts::value<int>(resolution)->default_value("50"))
 	        ("o,obstacles", "generate additional obstacles in a maze", cxxopts::value<bool>(obstacles))
 	        ("s,spaces", "generate additional spaces in a maze", cxxopts::value<bool>(spaces));
