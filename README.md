@@ -1,6 +1,6 @@
 # Maze generator for ROS
 
-There is a small program to generate the mazes.
+There is a small program to generate mazes.
 
 Prerequisites
 -------------
@@ -24,7 +24,7 @@ Example
 Output
 ------
 
-The generator create a ".pgm" and ".yaml" files to load in your map server
+The generator creates a ".pgm" and ".yaml" files to load in your map server
 
 ![Grid map example](https://pp.userapi.com/c636427/v636427848/63566/pqz7axVrZ2w.jpg)
 
@@ -44,6 +44,6 @@ You also can change any parameters:
 Warning
 -------
 
-If you need to create largest maze ever you need to expand your stack.
+If you need to create largest maze ever you will have to expand your stack.
 
-Maximum size is an approximate 550 x 550 blocks in maze.
+Maximum maze size is approximately 550 x 550 blocks
