@@ -1,0 +1,10 @@
+#dirs
+bin
+dep
+
+#program
+maze_generator
+
+#output files
+*.yaml
+*.pgm
