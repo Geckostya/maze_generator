@@ -20,10 +20,16 @@ void Drawer::draw_vertical_line(std::size_t l, std::size_t i, std::size_t j, uin
     }
 }
 
-void Drawer::writeImage() const {
+void Drawer::write_image() const {
     for (std::size_t y = 0; y < picture.get_rows(); y++) 
         for (std::size_t x = 0; x < picture.get_cols(); x++)
             writeInt(static_cast<int>(picture[y][x]), ' ');
+}
+
+void Drawer::write_image_bin() const {
+    for (std::size_t y = 0; y < picture.get_rows(); y++) 
+        for (std::size_t x = 0; x < picture.get_cols(); x++)
+            writeChar(picture[y][x]);
 }
 
 void Drawer::draw_circle(int x1, int y1, int R, uint8_t color, bool fill) {

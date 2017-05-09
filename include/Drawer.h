@@ -21,7 +21,8 @@ public:
 
     void draw_maze(Maze &maze, std::size_t cell_size, std::size_t wall_size);
 
-    void writeImage() const;
+    void write_image() const;
+    void write_image_bin() const;
 
 
     const static uint8_t color_white = 254;

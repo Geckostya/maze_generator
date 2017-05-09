@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
 
 	std::string filename, fullname;
 	int rows = 15, cols = 15, block_width = 5, wall_width = 1,resolution = 50; 
-	bool obstacles = false, spaces = false;
+	bool obstacles = false, spaces = false, text = false;
 
 	try {
         cxxopts::Options options(argv[0], "./maze_generator -f \"out\" -b 15 -w 3 -c 20 -r 20");
@@ -31,7 +31,8 @@ int main(int argc, char *argv[]) {
 	        ("w,wall_width", "pixel width of a wall in a maze", cxxopts::value<int>(wall_width)->default_value("3"))
 	        ("r,resolution", "resolution in meteres per 1000 pixels", cxxopts::value<int>(resolution)->default_value("50"))
 	        ("o,obstacles", "generate additional obstacles in a maze", cxxopts::value<bool>(obstacles))
-	        ("s,spaces", "generate additional spaces in a maze", cxxopts::value<bool>(spaces));
+	        ("s,spaces", "generate additional spaces in a maze", cxxopts::value<bool>(spaces))
+	        ("t,text", "generate pgm file in text mode", cxxopts::value<bool>(text));
 
 
         options.parse(argc, argv);
@@ -68,12 +69,15 @@ int main(int argc, char *argv[]) {
 		drawer.generate_random_objects(rows * cols / (rows + cols), block_width / 2, 2 * block_width, Drawer::color_black, Drawer::color_white);
 
 
-	writeWord("P2\n");
+	writeWord(text ? "P2\n" : "P5\n");
 	writeInt(pixels_width, ' ');
 	writeInt(pixels_height, '\n');
 	writeInt(255, '\n');
 
-	drawer.writeImage();
+	if (text)
+		drawer.write_image();
+	else
+		drawer.write_image_bin();
 
 	std::ofstream ofs(filename + std::string(".yaml"));
 	char* full_path = realpath(fullname.c_str(), NULL);
