@@ -35,7 +35,7 @@ private:
 
     std::size_t _rows;
     std::size_t _cols;
-    uint8_t **_data = NULL;
+    uint8_t **_data = nullptr;
 };
 
 class ImageException {

@@ -1,8 +1,13 @@
 #include "Maze.h"
 #include "algorithm"
 
+#include "iostream"
+
 Maze::Maze(std::size_t r, std::size_t c) : cols(c), rows(r) {
 	mt.seed(rd());
+
+	if (!r || !c)
+		return;
 
 	int8_t *tmp = new int8_t [r * c];
     std::fill(tmp, tmp + r * c, -1);
@@ -13,6 +18,8 @@ Maze::Maze(std::size_t r, std::size_t c) : cols(c), rows(r) {
 }
 
 Maze::~Maze() {
+	if (parent == nullptr)
+		return;
 	delete[] parent[0];
     delete[] parent;
 }

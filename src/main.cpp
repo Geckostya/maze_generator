@@ -37,10 +37,13 @@ int main(int argc, char *argv[]) {
 
         options.parse(argc, argv);
 
-        if (options.count("help"))
-        {
+        if (options.count("help")) {
             std::cout << options.help({""}) << std::endl;
             exit(0);
+        }
+
+        if (rows < 0 || cols < 0 || wall_width < 0 || block_width < 0 || resolution < 0) {
+        	throw cxxopts::OptionException("Can't understand negative values");
         }
 
     } catch (const cxxopts::OptionException& e) {

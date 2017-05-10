@@ -135,6 +135,7 @@ void Drawer::generate_random_objects(std::size_t n, std::size_t min_size, std::s
 void Drawer::draw_maze(Maze &maze, std::size_t cell_size, std::size_t wall_size) {
     std::size_t cols = maze.get_cols();
     std::size_t rows = maze.get_rows();
+
     for (std::size_t y = 0; y < rows; y++)
         for (std::size_t x = 0; x < cols; x++) {
             int8_t dir = maze[y][x];

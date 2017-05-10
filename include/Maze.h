@@ -28,7 +28,7 @@ public:
 
 	void generate(int dir = 5, int x = 0, int y = 0);
 private:
-	int8_t **parent;
+	int8_t **parent = nullptr;
 	std::size_t cols, rows;
 	int8_t x_move[4] = {1, 0, -1, 0};
 	int8_t y_move[4] = {0, -1, 0, 1};

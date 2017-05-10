@@ -4,6 +4,9 @@
 #define PLACE() __FILE__, __FUNCTION__, __LINE__
 
 uint8_t** Image::new_data(std::size_t r, std::size_t c, uint8_t x) {
+    if (!r || !c)
+        return nullptr;
+
     uint8_t *tmp = new uint8_t [r * c];
     std::fill(tmp, tmp + r * c, x);
     uint8_t **data = new uint8_t *[r];
@@ -13,6 +16,9 @@ uint8_t** Image::new_data(std::size_t r, std::size_t c, uint8_t x) {
 }
 
 void Image::del_data() {
+    if (_data ==  nullptr)
+        return;
+
     delete[] _data[0];
     delete[] _data;
 }
